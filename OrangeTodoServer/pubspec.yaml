@@ -1,0 +1,4 @@
+name: OrangeTodoServer
+description: A sample command-line application
+dependencies:
+  mongo_dart: any
