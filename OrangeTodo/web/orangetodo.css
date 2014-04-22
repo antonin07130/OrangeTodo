@@ -27,3 +27,13 @@ h1, p {
   -webkit-user-select: none;
   user-select: none;
 }
+
+#statusText {
+  font-size: 10pt;
+  text-align: center;
+  margin-top: 140px;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid #ccc;
+  background-color: #fff;
+}
