@@ -31,12 +31,15 @@ Future<List<Map>> getTodosFromServer(String iServerURL) {
   
   //var path = "ToDoListServerDB.db.json";
   HttpRequest.getString(iServerURL)
-   .then((stringFromServer){returnCompleter.complete(processTodoListString(stringFromServer));});
+   .then((stringFromServer){returnCompleter.complete(getTodoListFromString(stringFromServer));});
   return returnCompleter.future;
 }
 
 
-Future<List<Map>> processTodoListString (String iJSONTodoList) {
+/**
+ * This function returns a Future list of todo maps from a JSON string.
+ */
+Future<List<Map>> getTodoListFromString (String iJSONTodoList) {
   Completer returnCompleter = new Completer();
   // try to automatically decode input string... and put it in a list of maps
   returnCompleter.complete(JSON.decode(iJSONTodoList));
@@ -44,6 +47,10 @@ Future<List<Map>> processTodoListString (String iJSONTodoList) {
 }
 
 
+/**
+ * This function instert todo "value" from a todo list in LIElement in a UListElemnt
+ * provided in the input.
+ */
 displayTodosInHTMLList(List<Map> todoList,UListElement displayHTMLList){
   
   for (Map itTodo in todoList) {
